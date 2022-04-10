@@ -35,7 +35,7 @@ class LoadScene extends Phaser.Scene {
 		this.load.setPath("./resources/images");
 
 		// ロードするリソース
-		// this.load.image("background", "./background.png");
+		this.load.image("player", "./player.png");
 
 	}
 

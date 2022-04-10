@@ -1,7 +1,7 @@
 "use strict";
 
-const game_width = 64 * 12;
-const game_height = 64 * 21;
+const game_width = 640;
+const game_height = 480;
 
 let gameData = {};
 let se = [];

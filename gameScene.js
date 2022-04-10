@@ -17,6 +17,8 @@ class GameScene extends Phaser.Scene {
 		this.keyZ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
 		this.keyX = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
 
+		this.player = new Player(nowScene, game_width / 2, game_height / 2);
+
 		this.fc = 0;
 		this.fade = new Fade(this, 1);
 
@@ -28,11 +30,15 @@ class GameScene extends Phaser.Scene {
 			return;
 		}
 
-		if (this.fc % 120 === 0) {
-
+		if (this.keyLeft.isDown) {
+			this.player.x -= this.player.speed;
+		} else if (this.keyRight.isDown) {
+			this.player.x += this.player.speed;
 		}
-
-		if (Phaser.Input.Keyboard.JustDown(this.keyLeft)) {
+		if (this.keyUp.isDown) {
+			this.player.y -= this.player.speed;
+		} else if (this.keyDown.isDown) {
+			this.player.y += this.player.speed;
 		}
 
 		let pointer = this.input.activePointer;
@@ -40,7 +46,7 @@ class GameScene extends Phaser.Scene {
 			console.log("hogehoge");
 		}
 
-		this.scene.systems.displayList.removeAll();
+		//this.scene.systems.displayList.removeAll();
 		this.fc++;
 	}
 }
